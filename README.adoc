@@ -1,0 +1,11 @@
+# JHU EN-525-615 Lab 1
+
+This repository contains the Lab 1 assignment material for the course.
+
+TIP: After all the assignments have been receive this repository will contain reference solutions to the lab
+
+== Quick Links
+
+* link:docs/lab1.adoc[Lab 1 Assignment]
+* link:docs/dev_environment_win.adoc[Windows Development Environment Setup]
+* link:docs/dev_environment_mac.adoc[Mac Development Environment Setup]
