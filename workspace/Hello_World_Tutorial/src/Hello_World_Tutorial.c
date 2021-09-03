@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : Hello_World_Tutorial.c
- Author      : Trevor Solberg
+ Author      : Andres Aleman
  Version     :
  Copyright   : Your copyright notice
  Description : Hello World in C, Ansi-style
