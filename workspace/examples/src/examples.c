@@ -19,8 +19,8 @@
 //Conditionally include example source code
 #define ENABLE_EXAMPLE_V0 (0)
 #define ENABLE_EXAMPLE_V1 (0)
-#define ENABLE_EXAMPLE_V2 (1)
-#define ENABLE_EXAMPLE_V3 (0)
+#define ENABLE_EXAMPLE_V2 (0)
+#define ENABLE_EXAMPLE_V3 (1)
 #define ENABLE_EXAMPLE_V4 (0)
 
 //Message Constraints
@@ -205,6 +205,84 @@ void do_example_v2(int startIndex, int stopIndex)
     {
         char *exampleString1 = 0;
         exampleString1 = getExampleString_v2(currentIndex, &exampleString1);
+        printf("%s\n\r", exampleString1);
+    }
+
+}
+#endif
+
+#if ENABLE_EXAMPLE_V3 == (1)
+//Example V3 Source Code
+
+/**
+ * @brief data structure to hold messages
+ *
+ * Contains information on the number of string and the max messages allowed
+ */
+typedef struct {
+    int maxMessages;  /**< Max number of messages allowd. */
+    int numMessages;  /**< number of messages in the data structure */
+    char messages[MAX_MESSAGES][MAX_MESSAGE_SIZE]; /** < 2d array of strings */
+}messages_v3_t;
+
+
+/**
+ * @brief Assigns exampleStringPtr to a global variable based on even/odd input value
+ *
+ * If `number` is even, then `exampleStringPtr` will be assigned to the string
+ * at index 0 of the `msgInst->messages` array
+ *
+ * If `number` is odd, then `exampleStringPtr` will be assigned to the string
+ * at index 1 of the `msgInst->messages` array
+ *
+ * @param messages_v3_t  *msgInst - pointer to struct containing messages
+ * @param int number - used to select which string to assign to exampleStringPtr
+ * @param char **exampleStringPtr - pointer to a char*
+ * @return void
+ *
+ */
+void getExampleString_v3(messages_v3_t *msgInst, int number, char **exampleStringPtr)
+{
+    if (number % 2 == 0){
+        //even number
+        *exampleStringPtr = msgInst->messages[0];
+    }
+    else{
+        //odd number
+        *exampleStringPtr = msgInst->messages[1];
+    }
+    return;
+}
+
+/**
+ * @brief Main entry point for Example v2
+ *
+ * Declares local variable of type messages_v3_t to store messages.
+ * Passed this variable to getExampleString_v3 when called.
+ * Loops from startIndex and stopIndex calls getExampleString_v3 then prints a string
+ *
+ * @param startIndex
+ * @param stopIndex
+ * @return void
+ *
+ */
+void do_example_v3(int startIndex, int stopIndex)
+{
+
+    messages_v3_t msgInst = {
+            1, // maxMessages
+            2, // numMessages
+            {  //messages
+                    "Hello World",
+                    "Hello Class"
+            }
+    }; //local variable to contain messages
+
+    int currentIndex;
+    for(currentIndex = startIndex; currentIndex <= stopIndex; currentIndex++)
+    {
+        char *exampleString1 = 0;
+        getExampleString_v3(&msgInst, currentIndex, &exampleString1); //pass pointer of msgInst
         printf("%s\n\r", exampleString1);
     }
 
