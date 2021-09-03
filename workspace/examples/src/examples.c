@@ -18,8 +18,8 @@
 
 //Conditionally include example source code
 #define ENABLE_EXAMPLE_V0 (0)
-#define ENABLE_EXAMPLE_V1 (1)
-#define ENABLE_EXAMPLE_V2 (0)
+#define ENABLE_EXAMPLE_V1 (0)
+#define ENABLE_EXAMPLE_V2 (1)
 #define ENABLE_EXAMPLE_V3 (0)
 #define ENABLE_EXAMPLE_V4 (0)
 
@@ -127,6 +127,85 @@ void do_example_v1(int startIndex, int stopIndex)
     {
         getExampleString_v1(currentIndex, &exampleString);
         printf("%s\n\r", exampleString);
+    }
+
+}
+#endif
+
+#if ENABLE_EXAMPLE_V2 == (1)
+//Example V2 Source Code
+
+
+/**
+ * @brief data structure to hold messages
+ *
+ * Contains information on the number of string and the max messages allowed
+ */
+typedef struct {
+    int maxMessages;  /**< Max number of messages allowd. */
+    int numMessages;  /**< number of messages in the data structure */
+    char messages[MAX_MESSAGES][MAX_MESSAGE_SIZE]; /** < 2d array of strings */
+}messages_v2_t;
+
+
+messages_v2_t G_msgInst_v2 = {
+        MAX_MESSAGES, // maxMessages
+        2,            // numMessages
+        {   //messages
+                "Hello World",
+                "Hello Class"
+        }
+}; /**< Global var for the messages data struct */
+
+
+/**
+ * @brief Assigns exampleStringPtr to a global variable based on even/odd input value
+ *
+ * If `number` is even, then `exampleStringPtr` will be assigned to the string
+ * at index 0 of the `G_msgInst_v2.messages` array
+ *
+ * If `number` is odd, then `exampleStringPtr` will be assigned to the string
+ * at index 1 of the `G_msgInst_v2.messages` array
+ *
+ * @param int number - used to select which string to assign to exampleStringPtr
+ * @param char **exampleStringPtr - pointer to a char*
+ * @return void
+ *
+ */
+char* getExampleString_v2(int number, char **exampleStringPtr)
+{
+    if (number % 2 == 0){
+        //even number
+        *exampleStringPtr = G_msgInst_v2.messages[0];
+
+    }
+    else{
+        //odd number
+        *exampleStringPtr = G_msgInst_v2.messages[1];
+    }
+    return *exampleStringPtr;
+}
+
+/**
+ * @brief Main entry point for Example v2
+ *
+ * Loops from startIndex and stopIndex calls getExampleString_v2 then prints a string
+ *
+ * This version stores multiple strings in a global array of a structure
+ *
+ * @param startIndex
+ * @param stopIndex
+ * @return void
+ *
+ */
+void do_example_v2(int startIndex, int stopIndex)
+{
+    int currentIndex;
+    for(currentIndex = startIndex; currentIndex <= stopIndex; currentIndex++)
+    {
+        char *exampleString1 = 0;
+        exampleString1 = getExampleString_v2(currentIndex, &exampleString1);
+        printf("%s\n\r", exampleString1);
     }
 
 }
