@@ -45,6 +45,28 @@ int RandomInt(int Lowest, int Highest)
     return (rand() % (Highest-Lowest) + Lowest);
 }
 
+#if ENABLE_EXAMPLE_V0 == (1)
+//Example V0 Source Code
+
+/**
+ * @brief Main entry point for Version 0 of our Example v0
+ *
+ * Loops from startIndex and stopIndex and prints "Hello World"
+ *
+ * @param startIndex
+ * @param stopIndex
+ * @return void
+ *
+ */
+void do_example_v0(int startIndex, int stopIndex){
+    while(startIndex <= stopIndex){
+        printf("Hello World\n");
+        startIndex++;
+    }
+    return;
+}
+#endif
+
 int main(void) {
 
 #if ECLIPSE_FLUSH_FIX == (1)
