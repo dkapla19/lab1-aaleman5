@@ -17,11 +17,15 @@
 #define ECLIPSE_FLUSH_FIX (1)  //Conditionally Disable Buffering print messages
 
 //Conditionally include example source code
-#define ENABLE_EXAMPLE_V0 (1)
-#define ENABLE_EXAMPLE_V1 (0)
+#define ENABLE_EXAMPLE_V0 (0)
+#define ENABLE_EXAMPLE_V1 (1)
 #define ENABLE_EXAMPLE_V2 (0)
 #define ENABLE_EXAMPLE_V3 (0)
 #define ENABLE_EXAMPLE_V4 (0)
+
+//Message Constraints
+#define MAX_MESSAGES      ( 2)
+#define MAX_MESSAGE_SIZE  (40)
 
 /**** Function Prototypes ****/
 
@@ -64,6 +68,67 @@ void do_example_v0(int startIndex, int stopIndex){
         startIndex++;
     }
     return;
+}
+#endif
+
+#if ENABLE_EXAMPLE_V1 == (1)
+//Example V1 Source Code
+
+static char G_exampleStrings[MAX_MESSAGES][MAX_MESSAGE_SIZE] =
+{
+        "Hello World",
+        "Hello Class"
+}; /**< Global var to hold two strings */
+
+/**
+ * @brief Assigns exampleStringPtr to a global variable based on even/odd input value
+ *
+ * If `number` is even, then `exampleStringPtr` will be assigned to the string
+ * at index 0 of the `G_exampleStrings` array
+ *
+ * If `number` is odd, then `exampleStringPtr` will be assigned to the string
+ * at index 1 of the `G_exampleStrings` array
+ *
+ * @param int number - used to select which string to assign to exampleStringPtr
+ * @param char **exampleStringPtr - pointer to a char*
+ * @return void
+ *
+ */
+void getExampleString_v1(int number, char **exampleStringPtr)
+{
+    if (number % 2 == 0){
+        //even number
+        *exampleStringPtr = G_exampleStrings[0]; //G_exampleStrings[0] is a pointer to a char* variable (a string in our case)
+    }
+    else{
+        //odd number
+        *exampleStringPtr = G_exampleStrings[1];
+    }
+    return;
+}
+
+/**
+ * @brief Main entry point for Example v1
+ *
+ * Loops from startIndex and stopIndex calls getExampleString_v1 then prints a string
+ *
+ * This version stores multiple strings in a global multidimensional array
+ *
+ * @param startIndex
+ * @param stopIndex
+ * @return void
+ *
+ */
+void do_example_v1(int startIndex, int stopIndex)
+{
+    char *exampleString = 0;
+    int currentIndex;
+    for(currentIndex = startIndex; currentIndex <= stopIndex; currentIndex++)
+    {
+        getExampleString_v1(currentIndex, &exampleString);
+        printf("%s\n\r", exampleString);
+    }
+
 }
 #endif
 
