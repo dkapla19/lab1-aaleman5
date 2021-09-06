@@ -10,12 +10,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
+#include "utils.h"
 
 void ex4(void);
 
 void sumOfNextElements(uint16_t* array, size_t size);
-
-void printArray(uint16_t* array, size_t size);
 
 #endif /* EX4_H_ */

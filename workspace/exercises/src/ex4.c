@@ -11,36 +11,24 @@ void ex4(void)
 {
 	printf("Exercise 4 - Case 1\n\r");
 	uint16_t test1[] = {10,2,30,40};
-	printArray(test1, 4);
+	printUInt16Array(test1, 4);
 	sumOfNextElements(test1, 4);
-	printArray(test1, 4);
+	printUInt16Array(test1, 4);
 	printf("Exercise 4 - Case 2\n\r");
 	uint16_t test2[] = {100,5,300,51,81};
-	printArray(test2, 5);
+	printUInt16Array(test2, 5);
 	sumOfNextElements(test2, 5);
-	printArray(test2, 5);
+	printUInt16Array(test2, 5);
 
 }
 
 void sumOfNextElements(uint16_t* array, size_t size)
 {
-	//go through each element
-	for(size_t i = 0; i<size; i++)
+	//go through each element backward, except last one
+	for(size_t i = size-1; i>0; i--)
 	{
-		//add to current element all the elements after it
-		for(int j = i+1; j<size; j++)
-		{
-			*(array+i) += *(array+j);
-		}
+		//add next element to current element (which will have the sum of next elements already)
+		*(array+i-1) += *(array+i);
 	}
-}
-
-void printArray(uint16_t* array, size_t size)
-{
-	for(size_t i = 0; i<size; i++)
-	{
-		printf("%d ", *(array+i));
-	}
-	printf("\n\r");
 }
 
