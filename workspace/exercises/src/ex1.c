@@ -5,8 +5,6 @@
  *      Author: Andres Aleman
  */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "ex1.h"
 
 void ex1(void){
