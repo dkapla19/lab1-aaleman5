@@ -16,6 +16,8 @@
 #define MULTIPLE_OF_SECOND -3
 #define MULTIPLE_OF_BOTH -4
 
+void ex6(void);
+
 int checkNumber(int boundStart, int boundEnd, int multipleFirst, int multipleSecond, int input);
 
 void multipleNumbersWrapper(int boundStart, int boundEnd, int multipleFirst, int multipleSecond, int* inputs, size_t size, char* exNum);
