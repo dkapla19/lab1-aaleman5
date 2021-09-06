@@ -17,7 +17,8 @@
 #define ECLIPSE_FLUSH_FIX (1)  //Conditionally Disable Buffering print messages
 #define ENABLE_EX1 (0)
 #define ENABLE_EX2 (0)
-#define ENABLE_EX3 (1)
+#define ENABLE_EX3 (0)
+#define ENABLE_EX4 (1)
 
 int main(void) {
 #if ECLIPSE_FLUSH_FIX == (1)
@@ -33,6 +34,9 @@ int main(void) {
 #endif
 #if ENABLE_EX3 == (1)
     ex3();
+#endif
+#if ENABLE_EX4 == (1)
+    ex4();
 #endif
 	return EXIT_SUCCESS;
 }
