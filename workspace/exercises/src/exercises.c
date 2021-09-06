@@ -20,8 +20,9 @@
 #define ENABLE_EX1 (0)
 #define ENABLE_EX2 (0)
 #define ENABLE_EX3 (0)
-#define ENABLE_EX4 (1)
+#define ENABLE_EX4 (0)
 #define ENABLE_EX5 (0)
+#define ENABLE_EX6 (1)
 
 int main(void) {
 #if ECLIPSE_FLUSH_FIX == (1)
@@ -43,6 +44,9 @@ int main(void) {
 #endif
 #if ENABLE_EX5 == (1)
     ex5();
+#endif
+#if ENABLE_EX6 == (1)
+    ex6();
 #endif
 	return EXIT_SUCCESS;
 }
