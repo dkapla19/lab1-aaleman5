@@ -21,6 +21,7 @@ void ex2(void){
 
 void getArea(const float* radius, float* area)
 {
+	//get the area of the circle
 	*area = PI*(*radius)*(*radius);
 }
 

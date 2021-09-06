@@ -11,10 +11,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ex1.h"
+#include "ex2.h"
+#include "ex3.h"
 
 #define ECLIPSE_FLUSH_FIX (1)  //Conditionally Disable Buffering print messages
 #define ENABLE_EX1 (0)
-#define ENABLE_EX2 (1)
+#define ENABLE_EX2 (0)
+#define ENABLE_EX3 (1)
 
 int main(void) {
 #if ECLIPSE_FLUSH_FIX == (1)
@@ -27,6 +30,9 @@ int main(void) {
 #endif
 #if ENABLE_EX2 == (1)
     ex2();
+#endif
+#if ENABLE_EX3 == (1)
+    ex3();
 #endif
 	return EXIT_SUCCESS;
 }

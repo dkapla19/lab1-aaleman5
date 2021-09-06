@@ -8,6 +8,8 @@
 #ifndef EX2_H_
 #define EX2_H_
 
+//Float definition of PI
+//https://embedded.fm/blog/2016/4/12/ew-floating-point
 #define PI 3.141592F
 
 #include <stdio.h>
