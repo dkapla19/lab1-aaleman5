@@ -18,6 +18,7 @@
 #include "ex6.h"
 #include "ex7.h"
 #include "ex8.h"
+#include "ex9.h"
 
 #define ECLIPSE_FLUSH_FIX (1)  //Conditionally Disable Buffering print messages
 #define ENABLE_EX1 (0)
@@ -27,7 +28,8 @@
 #define ENABLE_EX5 (0)
 #define ENABLE_EX6 (0)
 #define ENABLE_EX7 (0)
-#define ENABLE_EX8 (1)
+#define ENABLE_EX8 (0)
+#define ENABLE_EX9 (1)
 
 int main(void) {
 #if ECLIPSE_FLUSH_FIX == (1)
@@ -58,6 +60,9 @@ int main(void) {
 #endif
 #if ENABLE_EX8 == (1)
     ex8();
+#endif
+#if ENABLE_EX9 == (1)
+    ex9();
 #endif
 	return EXIT_SUCCESS;
 }
